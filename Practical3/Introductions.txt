@@ -1,4 +1,6 @@
-Hello, my name is Shou.
-I like drinking coffee and eating chocolate biscuits.
-I am enjoying teaching IBI1 in person again 
-I am happy that I can push my repo from Visual Studio Code to GitHub
+Hello, my name is Shou Xinyu.
+I like drinking coffee and listening to soft music.
+I enjoy reading books in my free time.
+I enjoy making handwritten notes for lessons.
+I am happy that I can push my repo from Visual Studio Code to GitHub.
+I am having a good time doing practical work for IBI1.
