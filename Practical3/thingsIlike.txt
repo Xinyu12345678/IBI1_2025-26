@@ -3,8 +3,12 @@ I like snow
 I like swimming
 I like painting
 I like travel
+<<<<<<< HEAD
 I like reading
 I like tea
 I like running
 I like music
 I like chocolate
+=======
+I
+>>>>>>> 40da2f5e95b8edca3828461c0a64f32786edfd2c
