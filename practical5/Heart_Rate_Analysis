@@ -1,0 +1,29 @@
+#create a list
+heart_rates=[72,60,126,85,90,59,76,131,88,121,64]
+#print the number and the mean heart rate of patients
+print(f"the number of the patients is",len(heart_rates))
+mean=sum(heart_rates)/len(heart_rates)
+print(f"the mean heart rate is",mean)
+#create variables low, normal and high
+low=0
+normal=0
+high=0
+#calculate the number of patients in each category
+for i in heart_rates:
+    if i<60:
+        low+=1
+    elif 60<=i<=120:
+        normal+=1
+    else:
+        high+=1
+print(f"the number of patients falling in the low category is {low}\nthe number of patients falling in the normal category is {normal}\nthe number of patients falling in the high category is {high}")
+#identify which category contains the largest number of patients
+catergory={"low(<60bpm)":low,"normal(60~120bpm)":normal,"high(>120bpm)":high}
+catergory_max=max(catergory,key=catergory.get)
+print(f"the catergory {catergory_max} contains the largest number of patients")
+import matplotlib.pyplot as plt
+import numpy as np
+#create a pie chart
+plt.pie(catergory.values(),explode=(0,0,0),labels=catergory.keys(),autopct="%1.1f%%",startangle=90)
+plt.title("Heart rate analysis")
+plt.show()

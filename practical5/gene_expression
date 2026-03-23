@@ -1,0 +1,30 @@
+#create a dictionary
+genes={"TP53":12.4,"EGFR":15.1,"BRCA1":8.2,"PTEN":5.3,"ESR1":10.7}
+#add a gene "MYC"
+genes["MYC"]=11.6
+print(genes)
+#the variable
+gene_of_interest="MYC"
+#print the value of it
+if gene_of_interest in genes:
+    print(f"the expression value of {gene_of_interest} is",genes[gene_of_interest])
+#If not exist, print an informative error message.
+else:
+    print(f"The gene {gene_of_interest} does not exist")
+#calculate the average gene expression value
+average=sum(genes.values())/len(genes)
+print(f"The average gene expression level is {average}")
+#import the tool
+import matplotlib.pyplot as plt
+import numpy as np
+#the number of the bars is 6
+ind=np.arange(6)
+#create a bar chart, import the numbers from the dictionary
+plt.bar(ind,genes.values(),width=0.5)
+#making the picture well labelled
+plt.title("gene expression")
+plt.xticks(ind,genes.keys())
+plt.ylabel("expression values")
+plt.xlabel("gene types")
+#show the chart
+plt.show()
