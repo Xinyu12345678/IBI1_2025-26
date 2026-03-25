@@ -1,6 +1,7 @@
 Hello, my name is Shou Xinyu.
 I like drinking coffee and listening to soft music.
-I enjoy reading books in my free time.
+I enjoy reading books and running in my free time.
+I enjoy keeping a diary
 I enjoy making handwritten notes for lessons.
 I am happy that I can push my repo from Visual Studio Code to GitHub.
 I am having a good time doing practical work for IBI1.
