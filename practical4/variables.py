@@ -6,7 +6,8 @@ e=c-b
 if d>e:
     print("decelerating")
 elif d<e:
-    print("celerating")#d is larger. decelerating.
+    print("celerating")
+#d is larger. decelerating.
 X=True
 Y=False
 W=X or Y
