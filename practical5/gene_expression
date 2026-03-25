@@ -1,5 +1,6 @@
 #create a dictionary
 genes={"TP53":12.4,"EGFR":15.1,"BRCA1":8.2,"PTEN":5.3,"ESR1":10.7}
+print(genes)
 #add a gene "MYC"
 genes["MYC"]=11.6
 print(genes)
