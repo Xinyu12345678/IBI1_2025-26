@@ -12,7 +12,6 @@ for i in range (len(pop2020)):
     print(country[i],":",percent)
 #print the percentage changes in descending order
 sorted_percentage=sorted(population_changes.items(),key=lambda x:x[1],reverse=True)
-print(sorted_percentage[2])
 print("Sorted population change:")
 for country,percent in sorted_percentage:
     print(country,":",percent)
