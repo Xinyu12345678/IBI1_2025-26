@@ -3,10 +3,11 @@
 #create an empty dict to store codons and the times they appear
 #open the file
 #ceate curr_seq/_gene to store 
-#the same as the former task(differnce:find )
-#
-#
-#
+#the same as the former task
+#find all ORFs ending with any stop codon
+#select ORFs ending with any stop codon
+#generate well labelled pie chart from codon counts
+#save the pie chart
 import re
 stop=input("input a stop codon (TAA,TAG or TGA):")
 if not stop in ["TAA","TAG","TGA"]:
