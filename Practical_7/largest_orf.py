@@ -8,16 +8,11 @@ seq = 'AAGAUACAUGCAAGUGGUGUGUCUGUUCUGAGAGGGCCUAAAAG'
 import re
 #making sure the internal nucleotides is multiples of three
 #take the ORF out(get rid of stop codons)
-seq_list=re.findall(r'(AUG(?:...)+?)(?:UAA|UAG|UGA)',seq)
-#Considering that the inner list may has more than one element or no element
-#store all the sequence into a list called all_ORF
+seq_list=re.findall(r'(AUG(?:...)*?)(?:UAA|UAG|UGA)',seq)
 print(seq_list)
-all_ORF=[]
-for i in seq_list:
-    all_ORF.append(i)
 #making sure there is ORF
-if all_ORF:
-    ORF_max=max(all_ORF,key=len)
+if seq_list:
+    ORF_max=max(seq_list,key=len)
     print(f'the largest ORF is {ORF_max}')
     print("length of ORF :",len(ORF_max) )
 else:

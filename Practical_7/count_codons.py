@@ -57,9 +57,22 @@ with open("Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa",'r') as infile:
                     codon_counts[cod]=1
 import matplotlib.pyplot as plt
 import numpy as np
-codon_counts=dict(sorted(codon_counts.items(),key=lambda x:x[1]))
-plt.figure(figsize=(12,12))
-plt.pie(codon_counts.values(),labels=None,autopct='%1.1f%%',startangle=90,textprops={'fontsize':8},pctdistance=0.85)
-plt.legend(codon_counts.keys(),ncol=2,loc="center left",bbox_to_anchor=(1,0.5))
+total = sum(codon_counts.values())
+threshold = 0.007
+filtered_counts = {}
+others_count = 0
+for codon, count in codon_counts.items():
+    if count / total >= threshold:
+        filtered_counts[codon] = count
+    else:
+        others_count += count
+if others_count > 0:
+    filtered_counts["Others"] = others_count
+sorted_counts=dict(sorted(filtered_counts.items(),key=lambda x:x[1]))
+if "Others" in sorted_counts:
+    sorted_counts["Others"] = sorted_counts.pop("Others")
+plt.figure(figsize=(12,14))
+plt.pie(sorted_counts.values(),labels=None,autopct='%1.1f%%',startangle=90,textprops={'fontsize':8},pctdistance=1.15)
+plt.legend(sorted_counts.keys(),ncol=1,loc="center left",bbox_to_anchor=(1,0.5))
 plt.title(f"Codon distribution for genes ending in {stop}")
 plt.savefig("codon_pie.png",dpi=300)
