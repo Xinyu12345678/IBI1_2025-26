@@ -20,7 +20,7 @@ largest_increase=sorted_percentage[0]
 print(f"The country with largest increase:\n{largest_increase[0]}:{largest_increase[1]}")
 #print the country with the largest decrease
 largest_decrease=sorted_percentage[-1]
-print(f"The country with largest increase:\n{largest_decrease[0]}:{largest_decrease[1]}")
+print(f"The country with largest decrease:\n{largest_decrease[0]}:{largest_decrease[1]}")
 #import the tool to draw the figure
 import matplotlib.pyplot as plt
 import numpy as np
