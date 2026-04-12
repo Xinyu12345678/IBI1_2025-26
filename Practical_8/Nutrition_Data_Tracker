@@ -1,0 +1,35 @@
+#create a class called food item
+#write a function to calculate the sum of nutrition data
+#print calculated data
+#report warning
+#use an example
+class food_item:
+    def __init__(self,name,calories,protein,carbohydrate,fat):
+        self.name=name
+        self.cal=calories
+        self.pro=protein
+        self.car=carbohydrate
+        self.fat=fat
+def calculate_nutritional_input(food_list):
+    total_calories=0
+    total_protein=0
+    total_carbohydrate=0
+    total_fat=0
+    for food in food_list:
+        total_calories+=food.cal
+        total_protein+=food.pro
+        total_carbohydrate+=food.car
+        total_fat+=food.fat
+    print(f"Total calories: {total_calories}kcal\nTotal protein: {total_protein}g\nTotal carbohydrates: {total_carbohydrate}g\nTotal fat: {total_fat}g")
+    if total_calories>2500:
+        print("Warning: Total calories is more than 2500kcal")
+    if total_fat>90:
+        print("Warning: Total fat is more than 90g")
+
+apple=food_item("apple",60,0.3,15,0.5)
+milk=food_item("milk", 150, 8, 12, 8)
+egg=food_item("egg", 78, 6.5, 0.5, 5.3)
+hamburger=food_item("hamburger", 550, 25, 45, 30)
+ice_cream=food_item("ice cream",200,3,30,8)
+food_list=[apple,milk,egg,hamburger,ice_cream]
+calculate_nutritional_input(food_list)
