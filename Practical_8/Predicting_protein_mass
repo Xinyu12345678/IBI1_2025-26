@@ -2,7 +2,7 @@
 #import the weight of amino acid into a dictionary
 #setup a variable to store the mass
 #calculate the sum of amino acid mass in a sequence
-#break when a n amino acid is not in the dic
+#return an error message when an amino acid is not in the dictionary
 #return the results
 def protein_mass(amino_acid_sequence):
     '''Calculate the mass of a protein given its amino acid sequence.'''
@@ -18,8 +18,7 @@ def protein_mass(amino_acid_sequence):
         if aa in amino_acid_mass:
             total_mass+=amino_acid_mass[aa]
         else:
-            print(f"{aa} has not recorded mass")
-            return 
+            return f"Error: {aa} has no recorded mass"
     return total_mass
 #Example of how this function should be called
 sequence="AHCD"
