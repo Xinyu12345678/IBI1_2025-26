@@ -6,6 +6,6 @@ line 60
 
 Result:
 The distribution of DALYs across countries in 2019 is right-skewed.
-Most countries have relatively low DALYs, while a feww countries still have very high DALYs.
+Most countries have relatively low DALYs, while a few countries still have very high DALYs.
 This indicates that the burden of disease was concentrated more heavily in some countries than others.
 That is broadly what I expected.

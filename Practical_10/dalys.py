@@ -1,4 +1,4 @@
-#import os, panda, matplotlib.pyplot and numpy
+#import os, pandas, matplotlib.pyplot and numpy
 #import the .csv file
 import os
 import pandas as pd
@@ -52,6 +52,7 @@ plt.ylabel("DALYs")
 plt.xticks(Singapore.Year,rotation=-45)
 plt.title("DALYs over time in Singapore")
 plt.tight_layout()
+plt.savefig("singapore_dalys.png", dpi=300, bbox_inches="tight")
 plt.show()
 
 #Answering the question: What was the distribution of DALYs across all countries in 2019?
@@ -64,4 +65,5 @@ plt.xlabel("DALYs")
 plt.ylabel("Number of countries")
 plt.title("Distribution of DALYs across countries in 2019")
 plt.tight_layout()
+plt.savefig("dalys_distribution_2019.png", dpi=300, bbox_inches="tight")
 plt.show()
