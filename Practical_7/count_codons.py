@@ -56,6 +56,9 @@ with open("Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa",'r') as infile:
                     codon_counts[cod]=codon_counts[cod]+1
                 else:
                     codon_counts[cod]=1
+print(f"Codon counts upstream of {stop}:")
+for codon, count in sorted(codon_counts.items()):
+    print(codon, ":", count)
 import matplotlib.pyplot as plt
 import numpy as np
 total = sum(codon_counts.values())
@@ -75,5 +78,5 @@ if "Others" in sorted_counts:
 plt.figure(figsize=(12,14))
 plt.pie(sorted_counts.values(),labels=None,autopct='%1.1f%%',startangle=90,textprops={'fontsize':8},pctdistance=1.15)
 plt.legend(sorted_counts.keys(),ncol=1,loc="center left",bbox_to_anchor=(1,0.5))
-plt.title(f"Codon distribution for genes ending in {stop}")
+plt.title(f"Codon distribution for genes ending in {stop}\n(Rare codons are grouped as Others)")
 plt.savefig("codon_pie.png",dpi=300)
