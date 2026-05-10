@@ -1,0 +1,20 @@
+Dear markers,
+
+Thank you for the formative feedback. I have read the feedback carefully and made changes to improve my portfolio before the summative assessment.
+
+I edited the script in Practical 5/population_grows_rate.py
+
+I corrected the output message for the country with the largest decrease. In the previous version, the code used the correct variable, largest_decrease, but the printed text incorrectly said "The country with largest increase". This could make the output misleading.
+
+I changed the code from:
+
+print(f"The country with largest increase:\n{largest_decrease[0]}:{largest_decrease[1]}")
+
+to:
+
+print(f"The country with largest decrease:\n{largest_decrease[0]}:{largest_decrease[1]}")
+
+I also checked that the edited script run without errors.
+
+Best wishes,
+Xinyu
