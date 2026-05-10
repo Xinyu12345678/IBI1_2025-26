@@ -7,8 +7,8 @@
 seq = 'AAGAUACAUGCAAGUGGUGUGUCUGUUCUGAGAGGGCCUAAAAG'
 import re
 #making sure the internal nucleotides is multiples of three
-#take the ORF out(get rid of stop codons)
-seq_list=re.findall(r'(AUG(?:...)*?)(?:UAA|UAG|UGA)',seq)
+# find ORF sequences from AUG to an in-frame stop codon
+seq_list=re.findall(r'(AUG(?:...)*?(?:UAA|UAG|UGA))',seq)
 print(seq_list)
 #making sure there is ORF
 if seq_list:
