@@ -1,0 +1,7 @@
+Reflection:
+
+In this practical, I learned how to use Python to build stochastic SIR models and simulate the spread of infection in different situations. At first, I found the idea of using probabilities for infection and recovery difficult, especially because the results change every time the code is run. However, this also helped me understand why the model is probabilistic rather than deterministic.
+
+The basic SIR model helped me understand how susceptible, infected and recovered populations change over time. The vaccination model was useful because I could see how increasing the vaccination rate reduced the number of infected people. I found the spatial SIR model the most challenging, because I needed to think about how to check the eight neighbouring cells and avoid going outside the 100 by 100 grid.
+
+The most important thing I learned was that real-world infection spread can be represented using simple rules and probabilities. I also learned that plotting the results is important because it makes the behaviour of the model much easier to understand.
