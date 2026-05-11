@@ -1,19 +1,38 @@
 #ask users to input a stop codon
 #error if input is not a stop codon
 #create an empty dict to store codons and the times they appear
+#define a function to find the longest ORF ending with the specified stop codon
 #open the file
-#ceate curr_seq/_gene to store 
+#create curr_seq/_gene to store
 #the same as the former task
-#find all ORFs ending with any stop codon
-#select ORFs ending with any stop codon
+#find the longest ORF ending with the specified stop codon in each gene
+#count codons in the longest ORF
+#print codon counts
+#stop if no ORFs were found
 #generate well labelled pie chart from codon counts
 #save the pie chart
-import re
 stop=input("input a stop codon (TAA,TAG or TGA):")
 if not stop in ["TAA","TAG","TGA"]:
     print(f"{stop} is not a stop codon") 
     exit()
 codon_counts={}
+def find_longest_orf(seq, target_stop):
+    longest_orf = ""
+
+    for start in range(len(seq) - 2):
+        if seq[start:start+3] == "ATG":
+
+            for pos in range(start + 3, len(seq) - 2, 3):
+                codon = seq[pos:pos+3]
+
+                if codon == target_stop:
+                    orf = seq[start:pos]
+
+                    if len(orf) > len(longest_orf):
+                        longest_orf = orf
+
+    return longest_orf
+
 with open("Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa",'r') as infile:
     curr_seq=[]
     curr_gene=""
@@ -22,34 +41,22 @@ with open("Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa",'r') as infile:
         if line.startswith(">"):
             if curr_gene:
                 full_seq=''.join(curr_seq)
-                all_ORF=re.findall(r"(ATG(?:...)*?)(TAA|TAG|TGA)",full_seq)
-                valid_ORFs=[]
-                for ORF, stop_cod in all_ORF:
-                    if stop_cod==stop:
-                        valid_ORFs.append(ORF)
-                if valid_ORFs:
-                    longest_ORF=max(valid_ORFs,key=len)
+                longest_ORF=find_longest_orf(full_seq,stop)
+                if longest_ORF:
                     ORF_codons=[longest_ORF[i:i+3] for i in range(0,len(longest_ORF),3)]
                     for cod in ORF_codons:
                         if cod in codon_counts:
                             codon_counts[cod]=codon_counts[cod]+1
                         else:
                             codon_counts[cod]=1
-                else:
-                    continue
             curr_gene=line.split()[0][1:]
             curr_seq=[]
         else:
             curr_seq.append(line)
     if curr_gene:
         full_seq=''.join(curr_seq)
-        all_ORF=re.findall(r"(ATG(?:...)*?)(TAA|TAG|TGA)",full_seq)
-        valid_ORFs=[]
-        for ORF, stop_cod in all_ORF:
-            if stop_cod==stop:
-                valid_ORFs.append(ORF)
-        if valid_ORFs:
-            longest_ORF=max(valid_ORFs,key=len)
+        longest_ORF=find_longest_orf(full_seq,stop)
+        if longest_ORF:
             ORF_codons=[longest_ORF[i:i+3] for i in range(0,len(longest_ORF),3)]
             for cod in ORF_codons:
                 if cod in codon_counts:
@@ -59,8 +66,12 @@ with open("Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa",'r') as infile:
 print(f"Codon counts upstream of {stop}:")
 for codon, count in sorted(codon_counts.items()):
     print(codon, ":", count)
+
+if not codon_counts:
+    print(f"No ORFs ending with {stop} were found.")
+    exit()
+
 import matplotlib.pyplot as plt
-import numpy as np
 total = sum(codon_counts.values())
 threshold = 0.007
 filtered_counts = {}
