@@ -1,8 +1,8 @@
-#create a class called food item
-#write a function to calculate the sum of nutrition data
-#print calculated data
-#report warning
-#use an example
+# Create a class called food_item to store the name, calories, protein, carbohydrate and fat of each food.
+# Create several food_item objects and put them into a list to represent food eaten in 24 hours.
+# Write a function to loop through the food list and add up total calories, protein, carbohydrate and fat.
+# Print the total nutrition data and report warnings if calories are over 2500 kcal or fat is over 90 g.
+# Use example food items to test whether the class and function work correctly.
 class food_item:
     def __init__(self,name,calories,protein,carbohydrate,fat):
         self.name=name
